@@ -53,10 +53,15 @@ class LocalizationNode(object):
             "uncertainity", Marker, queue_size=0)
         self.pub_laser = rospy.Publisher("ekf_laser", LaserScan, queue_size=0)
 
+
+        # self.pub = rospy.Publisher('/mobile_base/commands/velocity', Twist, queue_size = 10)
+        
         # Subscribers
         self.sub_odom = rospy.Subscriber("odom", Odometry, self.odom_callback)
         self.sub_scan = rospy.Subscriber("lines", Marker, self.lines_callback)
-
+        
+        # self.sub_cam = rospy.Subscriber("color_detection", camera/rgb/image_raw, queue_size=0)
+        
         # TF
         self.tfBroad = tf.TransformBroadcaster()
 

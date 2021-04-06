@@ -26,6 +26,7 @@
         <arg name="dataset1" default="$(arg dataset1)"/>
         <arg name="dataset2" default="$(arg dataset2)"/>
         <arg name="dataset3" default="$(arg dataset3)"/>
+    
      </include>
     
     <!-- Split & Merge node -->
@@ -41,4 +42,18 @@
         <param if="$(arg dataset3)" name="dataset" value="3" type="int"/>
     </node>
     
+    <?ignore
+    
+    <!-- Color detection node-->
+    <node pkg="project_slam" type="color_detect.py" name="color_detection" output="screen">
+        
+    </node>
+
+    <!-- Navigation node-->
+    <node pkg="project_slam" type="node.py" name="ekf_slam" output="screen">
+
+    </node>
+
+    ?>
+
 </launch>
